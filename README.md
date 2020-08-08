@@ -34,9 +34,7 @@ ___
 
 ### React
 
-> [React][React] é uma **biblioteca de construção de interfaces SPA que via otimizar a experiência do usuário**.
-
-Também existem 'sub pacotes' do React, de acordo com o ambiente da aplicação - veja alguns dos principais:
+[React][React] é uma **biblioteca de construção de interfaces SPA que via otimizar a experiência do usuário**. Também existem 'sub pacotes' do React, de acordo com o ambiente da aplicação - veja alguns dos principais:
 
 | ambiente | 'sub pacote' |
 | ----- | ----- |
@@ -46,6 +44,16 @@ Também existem 'sub pacotes' do React, de acordo com o ambiente da aplicação 
 | Televisão | ReactTV |
 
 Independentemente do 'sub pacote', sempre utilizaremos o **[React][React]**. O [React][React] também utiliza bibliotecas adicionais para integrar-se às interfaces de acordo com o ambiente. Por exemplo, na web utilizamos o [ReactJS][ReactJS] com o [ReactDOM][ReactDOM]. Já para apps mobile utilizamos o [ReactNative][ReactNative] com uma biblioteca adicional também chamada de ReactNative.
+
+### TypeScript
+
+O [TypeScript][TypeScript] é uma extensão do JavaScript que utiliza a tipagem que facilita a manutenção do código e garante a consistência de nossas soluções, pois captura um erro antes mesmo de sua execução. Também possui recursos para IDEs que otimizam o desenvolvimento.
+
+## Passo a Passo
+
+### 01.01 Criando projeto
+
+Criaremos o projeto dentro da pasta do projeto/repositório. Caso utilize _yarn_ execute o comando `yarn create react-app web --template typescript`. Caso contrário, utilize o [npx][npx] com o comando `npx create react-app  web --template typescript`.
 
 ## Links Úteis e Interessantes
 
@@ -94,5 +102,6 @@ Se quiser trocar idéias, experiências e figurinhas, entre em contato comigo!
 [ReactDOM]: <https://github.com/facebook/react/tree/master/packages/react-dom>
 [ReactJS]: <https://pt-br.reactjs.org/>
 [React Native]: <https://reactnative.dev/>
+[TypeScript]: <https://www.typescriptlang.org/>
 (LINKS ESPECÍFICOS)
 [Rocketseat]: <https://app.rocketseat.com.br/me/marcelo-diament>
