@@ -4,10 +4,12 @@ Prática da Next Level Week #02 - [Rocketseat][Rocketseat]
 
 ![Banner topo][Banner topo]
 
-## Sobre
+## Sobre o Projeto
 
 Esse repositório contempla a prática proposta na segunda edição da NLW (Next Level Week).
-O projeto chama-se **Proffy** e consiste numa plataforma de e-learning.
+O projeto chama-se **Proffy** e consiste numa plataforma de e-learning, onde se conecta alunos e professores numa plataforma de estudos online com opções de criar perfil, cadastro de matérias, horários e valores de aula, buscar por registro de professores (com filtros por horário e matéria) e agendar aulas (não contempla vídeo chamadas). Os dados serão salvos (_storage_) do lado do cliente. Utilizamos o conceito _bubble first_ (_mobile first_), privilegiando os dispositivos _mobile_.
+
+> **Proffy** é uma homenagem ao dia 06 de Agosto, Dia dos Professores.
 
 ## Configuração do Ambiente
 
