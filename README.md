@@ -30,6 +30,23 @@ npm -v
 Garanta que possui acesso aos arquivos de _layout_ do projeto no [Figma][Figma] para ter uma melhor visão do que será construído.
 ___
 
+## Tecnologias
+
+### React
+
+> [React][React] é uma **biblioteca de construção de interfaces SPA que via otimizar a experiência do usuário**.
+
+Também existem 'sub pacotes' do React, de acordo com o ambiente da aplicação - veja alguns dos principais:
+
+| ambiente | 'sub pacote' |
+| ----- | ----- |
+| Web | [ReactJS][ReactJS] |
+| Mobile App | [React Native][React Native] |
+| Realidade Virtual | ReactVR |
+| Televisão | ReactTV |
+
+Independentemente do 'sub pacote', sempre utilizaremos o **[React][React]**. O [React][React] também utiliza bibliotecas adicionais para integrar-se às interfaces de acordo com o ambiente. Por exemplo, na web utilizamos o [ReactJS][ReactJS] com o [ReactDOM][ReactDOM]. Já para apps mobile utilizamos o [ReactNative][ReactNative] com uma biblioteca adicional também chamada de ReactNative.
+
 ## Links Úteis e Interessantes
 
 ### Ambiente
@@ -38,6 +55,17 @@ ___
 [Instalação das dependências](https://www.notion.so/Instala-o-3d8bc65b8a0f48249bf3037156eb0a15)
 [Atualização das dependências](https://www.notion.so/Atualiza-o-138506d91f2d422da44f5ccd4354186b)
 [Erros mais comuns](https://www.notion.so/Tive-problemas-e-agora-7190da61cb234af88e5861d5d2897ad7)
+
+### Tecnologias e Ferramentas
+
+[Figma][Figma]
+[node][node]
+[npm][npm]
+[notion][notion]
+[React][React]
+[ReactDOM][ReactDOM]
+[ReactJS][ReactJS]
+[React Native][React Native]
 
 ### Rocketseat
 
@@ -61,5 +89,10 @@ Se quiser trocar idéias, experiências e figurinhas, entre em contato comigo!
 [Figma]: <https://figma.com>
 [node]: <https://nodejs.org>
 [npm]: <https://www.npmjs.com/>
+[notion]: <https://www.notion.so/>
+[React]: <https://github.com/facebook/react>
+[ReactDOM]: <https://github.com/facebook/react/tree/master/packages/react-dom>
+[ReactJS]: <https://pt-br.reactjs.org/>
+[React Native]: <https://reactnative.dev/>
 (LINKS ESPECÍFICOS)
 [Rocketseat]: <https://app.rocketseat.com.br/me/marcelo-diament>
