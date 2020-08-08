@@ -55,6 +55,8 @@ O [TypeScript][TypeScript] é uma extensão do JavaScript que utiliza a tipagem 
 
 Criaremos o projeto dentro da pasta do projeto/repositório. Caso utilize _yarn_ execute o comando `yarn create react-app web --template typescript`. Caso contrário, utilize o [npx][npx] com o comando `npx create react-app  web --template typescript`.
 
+Após a criação do projeto (que chamamos de _web_), acesse a pasta com o comando `cd web` e então abra o [VSCode][VSCode] (ou sua IDE de preferência) com o comando `code .`.
+
 ## Links Úteis e Interessantes
 
 ### Ambiente
