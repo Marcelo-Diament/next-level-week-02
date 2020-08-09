@@ -211,6 +211,8 @@ import React from 'react';
 
 Propriedades são uma forma de transmitirmos informações entre os componentes. Funcionam como as propriedades de um objeto JavaScript. Podemos defini-las numa interface (já definindo sua tipagem) e definirmos o componente como FC (FunctionComponent), de modo que receba as _props_ definidas na interface e permita usarmos as propriedades desejadas dentro do HTML do componente.
 
+Outra maneira de usarmos uma _prop_ (sem termos de definir na interface) é através da propriedade _children_ (`props.children`). Essa propriedade nos permite definir o conteúdo dentro do contexto onde o componente está sendo utilizado (como o form de `TeacherList` dentro do `PageHeader`).
+
 ##### ReactJS | Rotas
 
 Para trabalharmos com as rotas, instalamos o `react-router-dom` ( `yarn add react-router-dom` ) e importamos o `BrowserRouter` e o `Route` no arquivo `routes.tsx` (que também é um componente):
