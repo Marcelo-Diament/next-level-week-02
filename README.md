@@ -102,7 +102,19 @@ Para que os erros que apareceram sejam corrigidos, precisamos:
 
 ##### 01.03 Assets
 
-Vamos incluir a pasta disponível como material extra da aula #01 (pasta `images`) dentro de `src/assets`. Estamos importando para o projeto algumas imagens e ícones para utilizarmos ao longo do projeto.
+Vamos incluir a pasta disponível como material extra da aula #01 (pasta `images`) dentro de `src/assets`. Estamos importando para o projeto algumas imagens e ícones para utilizarmos ao longo do projeto. Estamos usando `.svg` para que as imagens fiquem mais leves.
+
+##### 01.04 Global Style
+
+Crie o arquivo `src/assets/styles/global.css` e aplique o inicial - incluindo as variáveis disponibilizadas nos arquivos extras da aula.
+
+Crie o _link_ do `App.tsx` com o estilo global com `import './assets/styles/global.css';`.
+
+Importe as fontes _Archivo_ (Pesos 400 - Regular -, e 700 - Bold) e _Poppins_ (pesso 400 - Regular) do [GoogleFonts](https://fonts.google.com/) com o seguinte trecho de código no `index.html`:
+
+``` html
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;700&family=Poppins&display=swap" rel="stylesheet">
+```
 
 ___
   
