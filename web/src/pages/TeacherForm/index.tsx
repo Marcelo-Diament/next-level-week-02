@@ -4,7 +4,7 @@ import './styles.css';
 
 function TeacherForm() {
   return (
-    <div id="page-form-list" className="container">
+    <div id="page-teacher-form" className="container">
       <PageHeader />
     </div>
   )
