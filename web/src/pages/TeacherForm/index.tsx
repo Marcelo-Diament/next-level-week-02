@@ -1,9 +1,9 @@
 import React from 'react';
 
-function TeachersForm() {
+function TeacherForm() {
   return (
-    <h1>Teachers Form</h1>
+    <h1>Teacher Form</h1>
   )
 }
 
-export default TeachersForm;
+export default TeacherForm;

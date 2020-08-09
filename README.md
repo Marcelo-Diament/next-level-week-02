@@ -142,7 +142,15 @@ Se instalado com sucesso, iremos criar o arquivo `routes.tsx` na pasta `./src` -
 
 Devemos ainda importar o componente Routes no `.App.tsx` e chamar o componente dentro da `div.App` .
 
-E no arquivo `./src/Landing/index.tsx` importamos também o `Link` e alteramos as _tags_ `<a></a>` por `<Link></Link>` (trocando os atributos `href` por `to` ), para evitar _loadings_ desnecessários.
+E no arquivo `./src/Landing/index.tsx` importamos `Link` e alteramos as _tags_ `<a></a>` por `<Link></Link>` (trocando os atributos `href` por `to` ), para evitar _loadings_ desnecessários.
+
+**Quebrando em Componentes**
+
+Criamos o conteúdo inicial do componente `pages/TeacherList`. Mas, como podemos reaproveitar vários 'pedaços' dessa página em outras, tornaremos esses elementos repetitivos diferentes componentes, como, por exemplo, o `components/PageHeader`.
+
+Basicamente salvaremos esses componentes reutilizáveis na página `/components` e trocaremos o trecho de HTML pela _tag_ do respectivo componente (definindo os devidos atributos).
+
+
 
 ___
   
@@ -167,7 +175,7 @@ import React from 'react';
 
 * Usar a extensão .tsx, pois estamos usando [TypeScript][TypeScript]
 
-##### Rotas
+##### ReactJS | Rotas
 
 Para trabalharmos com as rotas, instalamos o `react-router-dom` ( `yarn add react-router-dom` ) e importamos o `BrowserRouter` e o `Route` no arquivo `routes.tsx` (que também é um componente):
 
@@ -192,7 +200,7 @@ function Routes() {
 export default Routes;
 ```
 
-E no arquivo `./src/ComponenteDesejado/index.tsx` importamos também o `Link` e alteramos as _tags_ `<a></a>` por `<Link></Link>` (trocando os atributos `href` por `to` ), para evitar _loadings_ desnecessários. O `Link` nos permite aplicar o conceito de **SPA** (Single Page Application), pois depois de carregado o conteúdo da página, não será carregado novamente.
+E no arquivo `./src/ComponenteDesejado/index.tsx` importamos também o `Link` - `import { Link } from 'react-router-dom` - e alteramos as _tags_ `<a></a>` por `<Link></Link>` (trocando os atributos `href` por `to` ), para evitar _loadings_ desnecessários. O `Link` nos permite aplicar o conceito de **SPA** (Single Page Application), pois depois de carregado o conteúdo da página, não será carregado novamente.
 
 Também precisaremos rodar `yarn add @types/react-router-dom -D` para que os componentes do `react-router-dom` possam ser importados.
 
