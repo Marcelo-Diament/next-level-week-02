@@ -130,6 +130,18 @@ E então criaremos a função `Landing()` , seguida do trecho que à torna dispo
 
 Crie o arquivo `src/pages/Landing/styles.css` para que possamos aplicar estilo especificamente no componente Landing, aplique o estilo e então inclua o caminho relativo para o estilo no `index.tsx` : `import './styles.css';` .
 
+##### 01.06 Listagem
+
+Vamos repetir o processo de criarmos novos componentes - TeachersList e TeachersForm.
+
+**Rotas**
+
+O primeiro passo é instalarmos o **reactRouterDOM** - basta executar `yarn add react-router-dom` - ele nos ajudará a criarmos e manipularmos as rotas da aplicação.
+
+Se instalado com sucesso, iremos criar o arquivo `routes.tsx` na pasta `./src` - ele é um componente que conterá todas as nossas rotas. Também precisaremos rodar `yarn add @types/react-router-dom -D` para que os componentes do `react-router-dom` possam ser importados.
+
+Devemos ainda importar o componente Routes no `.App.tsx` e chamar o componente dentro da `div.App` .
+
 ___
   
 
@@ -152,6 +164,33 @@ import React from 'react';
 ```
 
 * Usar a extensão .tsx, pois estamos usando [TypeScript][TypeScript]
+
+##### Rotas
+
+Para trabalharmos com as rotas, instalamos o `react-router-dom` e importamos o `BrowserRouter` e o `Route` no arquivo `routes.tsx` (que também é um componente):
+
+``` tsx
+import React from 'react';
+import { BrowserRouter, Route} from 'react-router-dom';
+import ComponenteDesejado from './local/ComponenteDesejado';
+
+function Routes() {
+  return (
+    <BrowserRouter>
+      <Route
+        path="/" // Caminho da rota
+        exact={true} // Se a correspondência deve ser exata
+        component={HomeBanner} // Componente a ser exibido
+      />
+      <Route path="/caminho" component={ComponenteDesejado} />
+    </BrowserRouter>
+  );
+}
+
+export default Routes;
+```
+
+E no arquivo `./src/Landing/index.tsx` importamos também o `Link` e alteramos as _tags_ `<a></a>` por `<Link></Link>` (trocando os atributos `href` por `to`), para evitar _loadings_ desnecessários. O `Link` nos permite aplicar o conceito de **SPA** (Single Page Application), pois depois de carregado o conteúdo da página, não será carregado novamente.
 
 ### Links Úteis e Interessantes
 
