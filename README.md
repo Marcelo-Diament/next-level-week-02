@@ -13,7 +13,7 @@ ___
 
 ### Projeto **Proffy**
 
-Esse repositório contempla a prática proposta na **segunda edição da `<nwl/>` **, cujo projeto se chama **Proffy**.
+Esse repositório contempla a prática proposta na **segunda edição da `<nwl/>` (NextLevelWeek)**, cujo projeto se chama **Proffy**.
 
 ![Proffy](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3368c282-bf94-49bb-bc6b-905542231e2c%2FPattern.png?table=block&id=3d5f45f5-4ec5-4ef9-b210-3565b7cce4e1&width=3840&cache=v2)
 
@@ -146,15 +146,41 @@ E no arquivo `./src/Landing/index.tsx` importamos `Link` e alteramos as _tags_ `
 
 **Quebrando em Componentes**
 
-Criamos o conteúdo inicial do componente `pages/TeacherList`. Mas, como podemos reaproveitar vários 'pedaços' dessa página em outras, tornaremos esses elementos repetitivos diferentes componentes, como, por exemplo, o `components/PageHeader`.
+Criamos o conteúdo inicial do componente `pages/TeacherList` . Mas, como podemos reaproveitar vários 'pedaços' dessa página em outras, tornaremos esses elementos repetitivos diferentes componentes, como, por exemplo, o `components/PageHeader` .
 
 Basicamente salvaremos esses componentes reutilizáveis na página `/components` e trocaremos o trecho de HTML pela _tag_ do respectivo componente (definindo os devidos atributos). Lembre-se de verificar as importações (mover ou copiar os _imports_ necessários para cada componente e importar o componente novo nos arquivos de onde foi removido e onde mais venha a ser utilizado).
 
 **Propriedades**
 
-Agora precisamos alterar o título de cada instância do componente `PageHeader`. Para isso usaremos as propriedades (usando `TypeScript` para definirmos os **tipos** de cada _prop_).
+Agora precisamos alterar o título de cada instância do componente `PageHeader` . Para isso faremos os seguintes passos:
 
+* Transformar a _function_ `PageHeader()` em uma _const_ (usando _arrow function_). Também definiremos que o `PageHeader` é um componente do tipo _Function Component_ (FC), que receberá a interface `PageHeaderProps` . E, como parâmetro único, receberemos _props_ (que contém todas as propriedades declaradas na interface). Ficará assim:
 
+``` tsx
+const PageHeader: React.FC<PageHeaderProps> = props => {
+  // ...
+}
+```
+
+* Definir uma _interface_ (chamada `PageHeaderProps` ) que conterá as _props_ do componente - nessa interface definiremos sua tipagem:
+
+``` tsx
+interface PageHeaderProps {
+  title: string;
+}
+```
+
+* Trocar o conteúdo do título pela _prop_ (usando interpolação):
+
+``` tsx
+<strong>{props.title}</strong>
+```
+
+* No componente que importa o `PageHeader` , trocaremos o conteúdo do título pela _prop_ _title_:
+
+``` tsx
+<PageHeader title="Que incrível que você quer dar aulas!"/>
+```
 
 ___
   
@@ -179,11 +205,11 @@ import React from 'react';
 
 * Usar a extensão .tsx, pois estamos usando [TypeScript][TypeScript]
 
-* Criamos uma pasta com o nome do componente (de acordo com a organização do projeto e tipo de componente - _page_, _component_, etc.) e criamos o arquivo `index.tsx` e seu estilo - `styles.css`. Depois simplesmente importamos e utilizamos a respectiva _tag_ do componente importado.
+* Criamos uma pasta com o nome do componente (de acordo com a organização do projeto e tipo de componente - _page_, _component_, etc.) e criamos o arquivo `index.tsx` e seu estilo - `styles.css` . Depois simplesmente importamos e utilizamos a respectiva _tag_ do componente importado.
 
 ##### ReactJS | Props
 
-Propriedades são uma forma de transmitirmos informações entre os componentes. Funcionam como as propriedades de um objeto JavaScript.
+Propriedades são uma forma de transmitirmos informações entre os componentes. Funcionam como as propriedades de um objeto JavaScript. Podemos defini-las numa interface (já definindo sua tipagem) e definirmos o componente como FC (FunctionComponent), de modo que receba as _props_ definidas na interface e permita usarmos as propriedades desejadas dentro do HTML do componente.
 
 ##### ReactJS | Rotas
 
@@ -225,14 +251,7 @@ Também precisaremos rodar `yarn add @types/react-router-dom -D` para que os com
 
 ##### Tecnologias e Ferramentas
 
-[Figma][Figma]
-[node][node]
-[npm][npm]
-[notion][notion]
-[React][React]
-[ReactDOM][ReactDOM]
-[ReactJS][ReactJS]
-[React Native][React Native]
+[Figma][Figma] | [node][node] | [npm][npm] | [notion][notion] | [React][React] | [ReactDOM][ReactDOM] | [ReactJS][ReactJS] | [React Native][React Native]
   
   
 
