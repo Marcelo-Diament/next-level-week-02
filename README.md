@@ -148,7 +148,11 @@ E no arquivo `./src/Landing/index.tsx` importamos `Link` e alteramos as _tags_ `
 
 Criamos o conteúdo inicial do componente `pages/TeacherList`. Mas, como podemos reaproveitar vários 'pedaços' dessa página em outras, tornaremos esses elementos repetitivos diferentes componentes, como, por exemplo, o `components/PageHeader`.
 
-Basicamente salvaremos esses componentes reutilizáveis na página `/components` e trocaremos o trecho de HTML pela _tag_ do respectivo componente (definindo os devidos atributos).
+Basicamente salvaremos esses componentes reutilizáveis na página `/components` e trocaremos o trecho de HTML pela _tag_ do respectivo componente (definindo os devidos atributos). Lembre-se de verificar as importações (mover ou copiar os _imports_ necessários para cada componente e importar o componente novo nos arquivos de onde foi removido e onde mais venha a ser utilizado).
+
+**Propriedades**
+
+Agora precisamos alterar o título de cada instância do componente `PageHeader`. Para isso usaremos as propriedades (usando `TypeScript` para definirmos os **tipos** de cada _prop_).
 
 
 
@@ -174,6 +178,12 @@ import React from 'react';
 ```
 
 * Usar a extensão .tsx, pois estamos usando [TypeScript][TypeScript]
+
+* Criamos uma pasta com o nome do componente (de acordo com a organização do projeto e tipo de componente - _page_, _component_, etc.) e criamos o arquivo `index.tsx` e seu estilo - `styles.css`. Depois simplesmente importamos e utilizamos a respectiva _tag_ do componente importado.
+
+##### ReactJS | Props
+
+Propriedades são uma forma de transmitirmos informações entre os componentes. Funcionam como as propriedades de um objeto JavaScript.
 
 ##### ReactJS | Rotas
 
