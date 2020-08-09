@@ -126,8 +126,11 @@ Confira alguns links relacionados
 [ReactDOM][ReactDOM]
 [ReactJS][ReactJS]
 [React Native][React Native]
+  
+  
 
-##### Rocketseat
+###### ![Rocketseat](https://rocketseat.com.br/icons/icon-48x48.png?v=cfca599cb367ccaf7377d56ddc7542f5)
+**Rocketseat**
 
 [YouTube](https://www.youtube.com/rocketseat) | [Twitter](https://twitter.com/rocketseat) | [Facebook](https://web.facebook.com/rocketseat) | [Instagram](https://www.instagram.com/rocketseat_oficial/)
 ___
