@@ -53,9 +53,35 @@ O [TypeScript][TypeScript] é uma extensão do JavaScript que utiliza a tipagem 
 
 ### 01.01 Criando projeto
 
-Criaremos o projeto dentro da pasta do projeto/repositório. Caso utilize _yarn_ execute o comando `yarn create react-app web --template typescript`. Caso contrário, utilize o [npx][npx] com o comando `npx create react-app  web --template typescript`.
+Criaremos o projeto dentro da pasta do projeto/repositório. Caso utilize _yarn_ execute o comando `yarn create react-app web --template typescript` . Caso contrário, utilize o [npx][npx] com o comando `npx create react-app  web --template typescript` .
 
-Após a criação do projeto (que chamamos de _web_), acesse a pasta com o comando `cd web` e então abra o [VSCode][VSCode] (ou sua IDE de preferência) com o comando `code .`.
+Após a criação do projeto (que chamamos de _web_), acesse a pasta com o comando `cd web` e então abra o [VSCode][VSCode] (ou sua IDE de preferência) com o comando `code .` . E, para visualizarmos o projeto rodando, rode `yarn start` (ou `npm start` ).
+
+### 01.02 Limpando o projeto
+
+Podemos remover os seguintes arquivos:
+
+`./web/README.md`
+`./web/src/App.css`
+`./web/src/App.text.tsx`
+`./web/src/index.css`
+`./web/src/logo.svg`
+`./web/src/serviceWorker.ts`
+`./web/src/setupTests.ts`
+
+Para que os erros que apareceram sejam corrigidos, precisamos:
+
+* Remover a chamada dos arquivos `serviceWorker.ts` e `index.css` no arquivo `index.tsx`
+
+* Remover o método `unregister()` do serviceWorker do final do arquivo `index.tsx` (e os respectivos comentários)
+
+* Remover a chamada dos arquivos `logo.svg` e `App.css` no arquivo `App.tsx`
+
+* Substituir a tag `<header></header>` (e todas as demais tags contidas nela) por uma tag `<h1></h1>` com o texto de preferência dentro dela
+
+* Manter somente o arquivo `index.html` na pasta `./public` e remover todos os demais arquivos
+
+* No arquivo `index.html`, deixar apenas o meta charset, meta viewport, meta theme-color e o title (atualizá-lo para Proffy, o nome da aplicação). Limpar também os comentários.
 
 ## Links Úteis e Interessantes
 
