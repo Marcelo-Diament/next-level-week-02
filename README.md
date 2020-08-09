@@ -100,21 +100,9 @@ Para que os erros que apareceram sejam corrigidos, precisamos:
 
 * No arquivo `index.html` , deixar apenas as _tags_ _meta charset_, _meta viewport_, _meta theme-color_ e _title_ (atualizá-lo para _Proffy_, o nome da aplicação). Limpar também os comentários.
 
-##### 01.03 Criando Componentes
+##### 01.03 Assets
 
-Componentes são basicamente funções que retornam trechos de HTML. No [React][React] criamos componentes para reaproveitarmos código, de forma a tornar o uso de elementos que se repetem ao longo dos documentos mais fácil (ao invés de reescrevermos o elemento a cada repetição, usamos o componente).
-
-Sempre que criamos componentes precisamos:
-
-* Iniciar o nome do componente com letra maiúscula, para não ser interpretado como uma _tag_ HTML
-
-* Sempre que formos incluir o HTML dento do código JavaScript (.jsx, .tsx) precisamos importar o [React][React], com o seguinte trecho:
-
-``` sh
-import React from 'react';
-```
-
-* Usar a extensão .tsx, pois estamos usando [TypeScript][TypeScript]
+Vamos incluir a pasta disponível como material extra da aula #01 (pasta `images`) dentro de `src/assets`. Estamos importando para o projeto algumas imagens e ícones para utilizarmos ao longo do projeto.
 
 ___
   
