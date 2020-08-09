@@ -100,14 +100,46 @@ Para que os erros que apareceram sejam corrigidos, precisamos:
 
 * No arquivo `index.html` , deixar apenas as _tags_ _meta charset_, _meta viewport_, _meta theme-color_ e _title_ (atualizá-lo para _Proffy_, o nome da aplicação). Limpar também os comentários.
 
+##### 01.03 Criando Componentes
+
+Componentes são basicamente funções que retornam trechos de HTML. No [React][React] criamos componentes para reaproveitarmos código, de forma a tornar o uso de elementos que se repetem ao longo dos documentos mais fácil (ao invés de reescrevermos o elemento a cada repetição, usamos o componente).
+
+Sempre que criamos componentes precisamos:
+
+* Iniciar o nome do componente com letra maiúscula, para não ser interpretado como uma _tag_ HTML
+
+* Sempre que formos incluir o HTML dento do código JavaScript (.jsx, .tsx) precisamos importar o [React][React], com o seguinte trecho:
+
+``` sh
+import React from 'react';
+```
+
+* Usar a extensão .tsx, pois estamos usando [TypeScript][TypeScript]
+
 ___
   
 
 ## **Informações Complementares**
 
-## Links Úteis e Interessantes
+### Conceitos
 
-Confira alguns links relacionados
+##### ReactJS | Criando Componentes
+
+Componentes são basicamente funções que retornam trechos de HTML. No [React][React] criamos componentes para reaproveitarmos código, de forma a tornar o uso de elementos que se repetem ao longo dos documentos mais fácil (ao invés de reescrevermos o elemento a cada repetição, usamos o componente).
+
+Sempre que criamos componentes precisamos:
+
+* Iniciar o nome do componente com letra maiúscula, para não ser interpretado como uma _tag_ HTML
+
+* Sempre que formos incluir o HTML dento do código JavaScript (.jsx, .tsx) precisamos importar o [React][React], com o seguinte trecho:
+
+``` sh
+import React from 'react';
+```
+
+* Usar a extensão .tsx, pois estamos usando [TypeScript][TypeScript]
+
+### Links Úteis e Interessantes
 
 ##### Ambiente
 
@@ -129,7 +161,10 @@ Confira alguns links relacionados
   
   
 
-###### ![Rocketseat](https://rocketseat.com.br/icons/icon-48x48.png?v=cfca599cb367ccaf7377d56ddc7542f5)
+###### 
+
+![Rocketseat](https://rocketseat.com.br/icons/icon-48x48.png?v=cfca599cb367ccaf7377d56ddc7542f5)
+
 **Rocketseat**
 
 [YouTube](https://www.youtube.com/rocketseat) | [Twitter](https://twitter.com/rocketseat) | [Facebook](https://web.facebook.com/rocketseat) | [Instagram](https://www.instagram.com/rocketseat_oficial/)
