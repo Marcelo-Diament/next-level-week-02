@@ -4,7 +4,9 @@ Prática da Next Level Week #02 - [Rocketseat][Rocketseat]
 
 ![Banner topo][Banner topo]
 
-## Sobre o Projeto
+# Sobre
+
+## Projeto **Proffy**
 
 Esse repositório contempla a prática proposta na segunda edição da NLW (Next Level Week).
 O projeto chama-se **Proffy** e consiste numa plataforma de e-learning, onde se conecta alunos e professores numa plataforma de estudos online com opções de criar perfil, cadastro de matérias, horários e valores de aula, buscar por registro de professores (com filtros por horário e matéria) e agendar aulas (não contempla vídeo chamadas). Os dados serão salvos (_storage_) do lado do cliente. Utilizamos o conceito _bubble first_ (_mobile first_), privilegiando os dispositivos _mobile_.
@@ -49,15 +51,17 @@ Independentemente do 'sub pacote', sempre utilizaremos o **[React][React]**. O [
 
 O [TypeScript][TypeScript] é uma extensão do JavaScript que utiliza a tipagem que facilita a manutenção do código e garante a consistência de nossas soluções, pois captura um erro antes mesmo de sua execução. Também possui recursos para IDEs que otimizam o desenvolvimento.
 
-## Passo a Passo
+# Passo a Passo
 
-### 01.01 Criando projeto
+## Aula 01 | ReactJS e Estrutura Web
+
+## 01.01 Criando projeto
 
 Criaremos o projeto dentro da pasta do projeto/repositório. Caso utilize _yarn_ execute o comando `yarn create react-app web --template typescript` . Caso contrário, utilize o [npx][npx] com o comando `npx create react-app  web --template typescript` .
 
 Após a criação do projeto (que chamamos de _web_), acesse a pasta com o comando `cd web` e então abra o [VSCode][VSCode] (ou sua IDE de preferência) com o comando `code .` . E, para visualizarmos o projeto rodando, rode `yarn start` (ou `npm start` ).
 
-### 01.02 Limpando o projeto
+## 01.02 Limpando o projeto
 
 Podemos remover os seguintes arquivos:
 
