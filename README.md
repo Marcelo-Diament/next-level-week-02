@@ -142,6 +142,8 @@ Se instalado com sucesso, iremos criar o arquivo `routes.tsx` na pasta `./src` -
 
 Devemos ainda importar o componente Routes no `.App.tsx` e chamar o componente dentro da `div.App` .
 
+E no arquivo `./src/Landing/index.tsx` importamos também o `Link` e alteramos as _tags_ `<a></a>` por `<Link></Link>` (trocando os atributos `href` por `to` ), para evitar _loadings_ desnecessários.
+
 ___
   
 
@@ -167,7 +169,7 @@ import React from 'react';
 
 ##### Rotas
 
-Para trabalharmos com as rotas, instalamos o `react-router-dom` e importamos o `BrowserRouter` e o `Route` no arquivo `routes.tsx` (que também é um componente):
+Para trabalharmos com as rotas, instalamos o `react-router-dom` ( `yarn add react-router-dom` ) e importamos o `BrowserRouter` e o `Route` no arquivo `routes.tsx` (que também é um componente):
 
 ``` tsx
 import React from 'react';
@@ -190,7 +192,9 @@ function Routes() {
 export default Routes;
 ```
 
-E no arquivo `./src/Landing/index.tsx` importamos também o `Link` e alteramos as _tags_ `<a></a>` por `<Link></Link>` (trocando os atributos `href` por `to`), para evitar _loadings_ desnecessários. O `Link` nos permite aplicar o conceito de **SPA** (Single Page Application), pois depois de carregado o conteúdo da página, não será carregado novamente.
+E no arquivo `./src/ComponenteDesejado/index.tsx` importamos também o `Link` e alteramos as _tags_ `<a></a>` por `<Link></Link>` (trocando os atributos `href` por `to` ), para evitar _loadings_ desnecessários. O `Link` nos permite aplicar o conceito de **SPA** (Single Page Application), pois depois de carregado o conteúdo da página, não será carregado novamente.
+
+Também precisaremos rodar `yarn add @types/react-router-dom -D` para que os componentes do `react-router-dom` possam ser importados.
 
 ### Links Úteis e Interessantes
 
