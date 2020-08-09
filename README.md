@@ -13,7 +13,7 @@ ___
 
 ### Projeto **Proffy**
 
-Esse repositório contempla a prática proposta na **segunda edição da `<nwl/>`**, cujo projeto se chama **Proffy**.
+Esse repositório contempla a prática proposta na **segunda edição da `<nwl/>` **, cujo projeto se chama **Proffy**.
 
 ![Proffy](https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2F3368c282-bf94-49bb-bc6b-905542231e2c%2FPattern.png?table=block&id=3d5f45f5-4ec5-4ef9-b210-3565b7cce4e1&width=3840&cache=v2)
 
@@ -91,11 +91,9 @@ Podemos remover os seguintes arquivos:
 Para que os erros que apareceram sejam corrigidos, precisamos:
 
 * Remover a chamada dos arquivos `serviceWorker.ts` e `index.css` no arquivo `index.tsx`
-
 * Remover o método `unregister()` do `serviceWorker.ts` do final do arquivo `index.tsx` (e os respectivos comentários)
 
 * Remover a chamada dos arquivos `logo.svg` e `App.css` no arquivo `App.tsx`
-
 * Substituir a _tag_ `<header></header>` (e todas as demais _tags_ contidas nela) por uma _tag_ `<h1></h1>` com o texto de preferência dentro dela
 
 * Manter somente o arquivo `index.html` na pasta `./public` e remover todos os demais arquivos
