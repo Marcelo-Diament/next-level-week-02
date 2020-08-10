@@ -292,14 +292,14 @@ A _migration_ serve para facilitar o trabalho em equipe ao garantir uma mesma es
 
 Para criar as _migrations_, vamos salvar os arquivos dentro de `./server/src/database/migrations` . As _migrations_ devem estar ordenadas de modo que a ordem de criação/manipulação dos dados e tabelas seja respeitado. Por isso ordenaremos com um prefixo com 2 dígitos e o nome descritivo da _migration_, como `00_create_users.ts` .
 
-Como o _knex_ não lê JavaScript, customizaremos os comandos de terminal para rodar as últimas _migrations_ e para realizar o _rollback_ das mesmas (no arquivo `./server/package.json`):
+Como o _knex_ não lê JavaScript, customizaremos os comandos de terminal para rodar as últimas _migrations_ e para realizar o _rollback_ das mesmas (no arquivo `./server/package.json` ):
 
 ``` sh
 "knex:migrate": "knex knexfile --knexfile.ts migrate:latest",
 "knex:migrate:rollback": "knex knexfile --knexfile.ts migrate:rollback"
 ```
 
-Para rodar os comandos basta acrescentar `yarn` ou `npm` antes (`yarn knex:migrate`).
+Para rodar os comandos basta acrescentar `yarn` ou `npm` antes ( `yarn knex:migrate` ).
 
 Como vamos trabalhar com o _sqlite3_, é recomenrável usar a extensão _SQLite_ do VSCode. Selecione _Open database_ para visualizar a tabela _users_ criada e as 2 tabelas da _migration_ criada.
 
@@ -432,7 +432,7 @@ Há 3 tipos de parâmetros que podemos utilizar. São:
 
 * Route Param: recursos da nossa rota (como `/users/12` , onde 12 seria o ID do usuário). Na rota é representado por `/users:id` . Acessamos através de `request.params` .
 
-* Query Param: parâmetros mais utilizados para paginação, filtros e ordenação. São exibidos na URL a partir do `?` após o recurso e concatenados com `&` . Cada _query param_ possui uma chave e um valor (exemplo: `/users?offse=0&orderby=ASC&limit=25` ). Acessamos através de `request.query` .
+* Query Param: parâmetros mais utilizados para paginação, filtros e ordenação. São exibidos na URL a partir do `?` após o recurso e concatenados com `&` . Cada _query param_ possui uma chave e um valor (exemplo: `/users?offset=0&orderby=ASC&limit=25` ). Acessamos através de `request.query` .
 
 ##### Knex
 
