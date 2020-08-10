@@ -38,7 +38,19 @@ npm -v
 ### Layout
 
 Garanta que possui acesso aos arquivos de _layout_ do projeto no [Figma][Figma] para ter uma melhor visão do que será construído.
-  
+
+### Funcionalidades
+
+##### Conexões
+
+* Rota para listar o total de conexões realizadas
+* Rota para criar uma nova conexão (ativada quando clicarem em entrar em contato)
+
+##### Aulas
+
+* Rota para criar aula
+
+* Rota para listar aulas | filtros por matéria, dia da semana e hora  
 
 ### Tecnologias
 
@@ -182,6 +194,75 @@ interface PageHeaderProps {
 <PageHeader title="Que incrível que você quer dar aulas!"/>
 ```
 
+  
+
+### Aula 02 | Back End com Node.js
+
+##### 02.01 Ambiente de Desenvolvimento
+
+Conferir no início do documento - Configuração de Ambiente (Instalação ou Atualização).
+
+##### 02.02 Criando Projeto e Configurando o Ambiente
+
+Criar a pasta `server` , acessá-la pelo terminal e executar:
+
+``` sh
+yarn init -y
+```
+
+_Ou, se não estiver usando `yarn` , rode `npm init -y` ._
+
+Será criado o arquivo `package.json` - que contém as principais informações sobre esse projeto e suas dependências.
+
+Vamos criar o arquivo `./server/src/server.ts` , que será o principal arquivo da aplicação (será o primeiro a ser carregado, tudo partirá dele).
+
+Usaremos [TypeScript][TypeScript] no projeto, por isso precisamos instá-lo com o comando `yarn add typescript -D` ou `npm install typescript -D` .
+
+E precisamos criar o arquivo `tsconfig.json` , executando `yarn tsc --init` ou `npx tsc --init` . Esse arquivo determina a forma que o [TypeScript][TypeScript] gerará o arquivo JavaScript.
+
+Por fim, instalaremos outra dependência ( `ts-node-dev` ), com os comandos `yarn add ts-node-dev -D` ou `npm install ts-node-dev -D` . Essa dependência será usada apenas em ambiente de desenvolvimento, ficará 'rodando' e observando o _script_ constantemente, refletindo atualizações e alterações do nosso código.
+
+##### 02.03 Iniciando o Projeto
+
+Precisamos incluir um _script_ de _start_ em nosso `package.json` , para podermos rodar `yarn start` ou `npm start` e iniciarmos nosso projeto.
+
+Acrescentaremos uma sessão _scripts_ e, nela, o comando _start_. O trecho `--transpile-only` evita que erros sejam verificados, facilitando o desenvolvimento. Já o trecho `--ignore-watch node_modules` evita que aplicações de terceiros sejam convertidas. E `--respawn` evita que fique iniciando e finalizando. Ele só encerra após o 'Control C' no terminal.
+
+Deve ficar assim:
+
+``` json
+{
+  "name": "server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node-dev --transpile-only --ignore-watch node_modules src/server.ts"
+  },
+  "devDependencies": {
+    "ts-node-dev": "^1.0.0-pre.56",
+    "typescript": "^3.9.7"
+  }
+}
+
+```
+
+**express**
+
+Instalamos o _express_ (um "micro framework" com algumas funcionalidades prontas):
+
+``` sh
+yarn add express
+```
+
+ou
+
+``` sh
+npm install express
+```
+
+No `server.ts` importamos o _express_ e definimos as configurações básicas do _express_ (_const app_, _listen_ e o método _get()_). No método `get()` simulamos o acesso a '/users' e retornamos um objeto como exemplo.
+
 ___
   
 
@@ -211,11 +292,11 @@ import React from 'react';
 
 Propriedades são uma forma de transmitirmos informações entre os componentes. Funcionam como as propriedades de um objeto JavaScript. Podemos defini-las numa interface (já definindo sua tipagem) e definirmos o componente como FC (FunctionComponent), de modo que receba as _props_ definidas na interface e permita usarmos as propriedades desejadas dentro do HTML do componente.
 
-Outra maneira de usarmos uma _prop_ (sem termos de definir na interface) é através da propriedade _children_ (`props.children`). Essa propriedade nos permite definir o conteúdo dentro do contexto onde o componente está sendo utilizado (como o form de `TeacherList` dentro do `PageHeader`).
+Outra maneira de usarmos uma _prop_ (sem termos de definir na interface) é através da propriedade _children_ ( `props.children` ). Essa propriedade nos permite definir o conteúdo dentro do contexto onde o componente está sendo utilizado (como o form de `TeacherList` dentro do `PageHeader` ).
 
 ##### ReactJS | Rotas
 
-Para trabalharmos com as rotas, instalamos o `react-router-dom` ( `yarn add react-router-dom` ) e importamos o `BrowserRouter` e o `Route` no arquivo `routes.tsx` (que também é um componente):
+Para trabalharmos com as rotas (endereços da aplicação), instalamos o `react-router-dom` ( `yarn add react-router-dom` ) e importamos o `BrowserRouter` e o `Route` no arquivo `routes.tsx` (que também é um componente):
 
 ``` tsx
 import React from 'react';
@@ -242,6 +323,76 @@ E no arquivo `./src/ComponenteDesejado/index.tsx` importamos também o `Link` - 
 
 Também precisaremos rodar `yarn add @types/react-router-dom -D` para que os componentes do `react-router-dom` possam ser importados.
 
+##### Node.js
+
+É uma plataforma que nos permite utilizar o mesmo JavaScript (puro ou com ReactJS, ...) no back-end.
+
+* _Non-blocking IO_: conseguimos controlar a assincronicidade
+
+* Streams (nos permite consumir dados no estilo '_LazyLoad_') e WorkerThreads (nos permite trabalhar o _core_)
+
+##### Node.js | Express, Rotas e Recursos
+
+**express**
+
+Iremos instalar algumas dependências como o _express_ (um "micro framework" que traz algumas funcionalidades prontas). Para instalarmos, usamos:
+
+``` sh
+yarn add express
+```
+
+ou
+
+``` sh
+npm install express
+```
+
+Após a instalação devemos importá-lo no nosso `server.ts` ( `import express from 'express';` ). Pode ser necessário executar `yarn add @types/express -D` também (caso o pacote não venha com [TypeScript][TypeScript] definido, aí baixamos esses pacotes com a tipagem).
+
+**Rotas**
+
+No arquivo `server.ts` , declaramos `const app = express();` , definimos os métodos do `app` e depois definimos a porta que o `listen()` usará (como 3333), com `app.listen(3333);` . 
+
+O arquivo deverá ficar assim, por enquanto. O método `get()` retorna a _const_ _users_ nesse exemplo:
+
+``` ts
+import express from 'express';
+
+const app = express();
+
+app.get('/users', (request, response) => {
+  const users = [
+    { name: 'Fulano', age: 25 },
+    { name: 'Ciclano', age: 52 },
+  ];
+  return response.json(users);
+});
+
+app.listen(3333);
+```
+
+**Recursos**
+
+São os trechos enviados após o endereço 'base' (como `/users` no exemplo anterior).
+
+**Métodos**
+
+São os métodos usados nas requisições HTTP, como **get**, **post**, **put** e **delete**, usados para listar, incluir, atualizar ou deletar dados. Usaremos o [Insomnia][Insomnia] para visualizarmos, consultarmos e manipularmos esses dados. Se preferir, pode utilizar o [Postman][Postman] também.
+
+Na ferramenta, basta criarmos uma _request_, selecionarmos o endereço (_endpoint_), o método (GET, POST, PUT, DELETE...) e, se necessário, passarmos os parâmetros. No caso, temos como endereço `http://localhost:3333/users` e como método, _post_.
+
+> Para o express ler JSON, precisamos rodar `app.use(express.json());` após criarmos a _const_ _app_.
+
+**Parâmetros**
+
+Há 3 tipos de parâmetros que podemos utilizar. São:
+
+* Request Body: normalmente são os dados para criação ou atualização de um registro. Acessamos através de `request.body` .
+
+* Route Param: recursos da nossa rota (como `/users/12` , onde 12 seria o ID do usuário). Na rota é representado por `/users:id` . Acessamos através de `request.params` .
+
+* Query Param: parâmetros mais utilizados para paginação, filtros e ordenação. São exibidos na URL a partir do `?` após o recurso e concatenados com `&` . Cada _query param_ possui uma chave e um valor (exemplo: `/users?offse=0&orderby=ASC&limit=25` ). Acessamos através de `request.query` .
+
 ### Links Úteis e Interessantes
 
 ##### Ambiente
@@ -253,13 +404,14 @@ Também precisaremos rodar `yarn add @types/react-router-dom -D` para que os com
 
 ##### Tecnologias e Ferramentas
 
-[Figma][Figma] | [node][node] | [npm][npm] | [notion][notion] | [React][React] | [ReactDOM][ReactDOM] | [ReactJS][ReactJS] | [React Native][React Native]
+[Figma][Figma] | [Insomnia] | [node][node] | [npm][npm] | [notion][notion] | [Postman] | [React][React] | [ReactDOM][ReactDOM] | [ReactJS][ReactJS] | [React Native][React Native]
   
   
 
 ###### 
 
 ![Rocketseat](https://rocketseat.com.br/icons/icon-48x48.png?v=cfca599cb367ccaf7377d56ddc7542f5)
+
 **Rocketseat**
 
 [YouTube](https://www.youtube.com/rocketseat) | [Twitter](https://twitter.com/rocketseat) | [Facebook](https://web.facebook.com/rocketseat) | [Instagram](https://www.instagram.com/rocketseat_oficial/)
@@ -280,9 +432,11 @@ Se quiser trocar idéias, experiências e figurinhas, entre em contato comigo!
 [Banner topo]: <https://www.notion.so/image/https%3A%2F%2Fs3-us-west-2.amazonaws.com%2Fsecure.notion-static.com%2Fa1b2081b-d1ad-4934-b13d-987d2c94eb52%2F1_-_NLW_02_-_2560x1080.jpg?table=block&id=98a471ad-3cb6-4482-84b8-ceed31c45767&width=3840&cache=v2>
 (<nlw/> #02 | Proffy)
 [Figma]: <https://figma.com>
+[Insomnia]: <https://insomnia.rest/download/#windows>
 [node]: <https://nodejs.org>
 [npm]: <https://www.npmjs.com/>
 [notion]: <https://www.notion.so/>
+[Postman]: <https://www.postman.com/>
 [React]: <https://github.com/facebook/react>
 [ReactDOM]: <https://github.com/facebook/react/tree/master/packages/react-dom>
 [ReactJS]: <https://pt-br.reactjs.org/>
