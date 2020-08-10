@@ -263,6 +263,47 @@ npm install express
 
 No `server.ts` importamos o _express_ e definimos as configurações básicas do _express_ (_const app_, _listen_ e o método _get()_). No método `get()` simulamos o acesso a '/users' e retornamos um objeto como exemplo.
 
+##### 02.04 Criando o Banco de Dados (SQLite)
+
+Utilizaremos o _SQLite_ por conta de sua simplicidade, mas poderíamos utilizar outros sem problemas. Para instalarmos, precisamos executar: `yarn add knex sqlite3` ou `npm install knex sqlite3` . O _knex_ é um _query builder_, que possibilita escrevermos as _queries_ de forma mais simples, em JavaScript.
+
+Depois da instalação, vamos criar a pasta `src/database` , onde ficarão os arquivos referentes ao BD (Banco de Dados). O primeiro arquivo a ser criado será o `connection.ts` . Nele importaremos o _knex_ e o _path_ (para facilitar o uso dos recursos das rotas). Então definiremos a _const_ db, que - usando _knex_ - definirá o tipo de banco (_sqlite3_), a connexão e, no caso do _sqlite3_, definiremos a propriedade `useNullAsDefault` como `true` .
+
+**Migration**
+
+O Knex é escrito em `.js` e não `.ts` , por isso precisaremos criar o arquivo `./server/knexfile.ts` . Nele faremos o seguinte:
+
+``` ts
+import path from 'path';
+
+module.exports = {
+  client: 'sqlite3',
+  connection: {
+    filename: path.resolve(__dirname, 'src', 'database', 'database.sqlite')
+  },
+  migrations: {
+    directory: path.resolve(__dirname, 'src', 'database', 'migrations')
+  },
+  useNullAsDefault: true,
+};
+```
+
+A _migration_ serve para facilitar o trabalho em equipe ao garantir uma mesma estrutura de Banco de Dados, replicando todo o 'passo a passo'/histórico das _schemas_ com simples comandos.
+
+Para criar as _migrations_, vamos salvar os arquivos dentro de `./server/src/database/migrations` . As _migrations_ devem estar ordenadas de modo que a ordem de criação/manipulação dos dados e tabelas seja respeitado. Por isso ordenaremos com um prefixo com 2 dígitos e o nome descritivo da _migration_, como `00_create_users.ts` .
+
+Como o _knex_ não lê JavaScript, customizaremos os comandos de terminal para rodar as últimas _migrations_ e para realizar o _rollback_ das mesmas (no arquivo `./server/package.json`):
+
+``` sh
+"knex:migrate": "knex knexfile --knexfile.ts migrate:latest",
+"knex:migrate:rollback": "knex knexfile --knexfile.ts migrate:rollback"
+```
+
+Para rodar os comandos basta acrescentar `yarn` ou `npm` antes (`yarn knex:migrate`).
+
+Como vamos trabalhar com o _sqlite3_, é recomenrável usar a extensão _SQLite_ do VSCode. Selecione _Open database_ para visualizar a tabela _users_ criada e as 2 tabelas da _migration_ criada.
+
+Agora vamos criar as demais _migrations_ (_class_schedule_, _classes_ e _connections_).
 ___
   
 
@@ -392,6 +433,10 @@ Há 3 tipos de parâmetros que podemos utilizar. São:
 * Route Param: recursos da nossa rota (como `/users/12` , onde 12 seria o ID do usuário). Na rota é representado por `/users:id` . Acessamos através de `request.params` .
 
 * Query Param: parâmetros mais utilizados para paginação, filtros e ordenação. São exibidos na URL a partir do `?` após o recurso e concatenados com `&` . Cada _query param_ possui uma chave e um valor (exemplo: `/users?offse=0&orderby=ASC&limit=25` ). Acessamos através de `request.query` .
+
+##### Knex
+
+> O Knex é um _query builder_, que possibilita escrevermos as _queries_ de forma mais simples, em JavaScript.
 
 ### Links Úteis e Interessantes
 
