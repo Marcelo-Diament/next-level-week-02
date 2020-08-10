@@ -304,6 +304,10 @@ Para rodar os comandos basta acrescentar `yarn` ou `npm` antes ( `yarn knex:migr
 Como vamos trabalhar com o _sqlite3_, é recomenrável usar a extensão _SQLite_ do VSCode. Selecione _Open database_ para visualizar a tabela _users_ criada e as 2 tabelas da _migration_ criada.
 
 Agora vamos criar as demais _migrations_ (_class_schedule_, _classes_ e _connections_).
+
+##### 02.05 Routes
+
+Vamos criar o arquivo `./server/src/routes.ts`. E vamos mover o trecho em que definimos a rota `app.get()` no arquivo `server.ts`.
 ___
   
 
