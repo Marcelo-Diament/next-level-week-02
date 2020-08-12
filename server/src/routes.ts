@@ -9,7 +9,7 @@ routes.get('/classes',async (request, response) => {
 });
 routes.get('/classes/:id',async (request, response) => {
   const classesId = request.params.id;
-  const classesItem = await (await db('classes').where('id', `${classesId}`));
+  const classesItem = await (await db('classes').where('id', classesId));
   return response.json(classesItem);
 });
 routes.post('/classes', async (request, response) => {
@@ -47,7 +47,7 @@ routes.get('/users',async (request, response) => {
 });
 routes.get('/users/:id',async (request, response) => {
   const userId = request.params.id;
-  const user = await (await db('users').where('id', `${userId}`));
+  const user = await (await db('users').where('id', userId));
   return response.json(user);
 });
 routes.post('/users', async (request, response) => {
