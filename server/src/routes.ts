@@ -3,6 +3,12 @@ import db from './database/connection';
 
 const routes = express.Router();
 
+// INDEX
+routes.get('/', (request, response) => {
+  return response.json({ message: 'Olar Mundo' });
+});
+
+// CLASSES
 routes.get('/classes',async (request, response) => {
   const allClasses = await db('classes');
   return response.json(allClasses);
@@ -41,6 +47,7 @@ routes.post('/classes', async (request, response) => {
   return response.send();
 });
 
+// USERS
 routes.get('/users',async (request, response) => {
   const allUsers = await db('users');
   return response.json(allUsers);
