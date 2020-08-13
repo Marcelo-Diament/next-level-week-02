@@ -328,7 +328,86 @@ Vamos criar o arquivo `./server/src/routes.ts` . E vamos mover o trecho em que d
 
 Para cada rota, teremos um método (GET, POST, DELETE) e um retorno (a listagem dos registros, os detalhes de um registro, a criação ou atualização de um novo registro ou a exclusão de um registro). Portanto as rotas são responsáveis por executar as _queries_ no banco de dados de acordo com as _requests_ e _responses_.
 
-Podemos utilizar o [Insomnia][Insomnia] para visualizarmos melhor o consumo e manipulação dos dados do banco _sqilte3_. Faremos essas operações de forma a usar o _await_/_async_ nas _promises_, a desestruturação de objetos e outros conceitos já vistos até esse ponto.
+Podemos utilizar o [Insomnia][Insomnia] para visualizarmos melhor o consumo e manipulação dos dados do banco _sqilte3_. Faremos essas operações de forma a usar o _await_/_async_ nas _promises_, a desestruturação de objetos e outros conceitos já vistos até esse ponto. Exemplos:
+
+###### GET | Lista Classes | sintaxe _knex_
+
+```ts
+routes.get('/classes',async (request, response) => {
+  const allClasses = await db('classes');
+  return response.json(allClasses);
+});
+```
+
+###### GET | Detalhe Classe | sintaxe _knex_
+
+```ts
+routes.get('/classes/:id',async (request, response) => {
+  const classesId = request.params.id;
+  const classesItem = await (await db('classes').where('id', classesId));
+  return response.json(classesItem);
+});
+```
+
+###### POST | Novo Usuário | sintaxe _knex_
+
+```ts
+routes.post('/users', async (request, response) => {
+  const {
+    name,
+    avatar,
+    whatsapp,
+    bio
+  } = request.body;
+
+  const insertedUser = await db('users').insert({
+    name,
+    avatar,
+    whatsapp,
+    bio
+  });
+
+  return response.send();
+});
+```
+
+###### DELETE | Exclusão Classe | sintaxe _knex_
+
+<!-- ```ts
+routes.get('/classes/:id',async (request, response) => {
+  const classesId = request.params.id;
+  const classesItem = await (await db('classes').where('id', classesId));
+  return response.json(classesItem);
+});
+``` -->
+
+**Schedules**
+
+Como salvamos os horários como _string_, precisaremos tratar esse dado. Para isso faremos o seguinte (no arquivo _routes.ts_):
+
+``` ts
+{ ... },
+const routes = express.Router();
+
+interface ScheduledItem {
+  week_day: number,
+  from: string,
+  to: string
+};
+
+{ ... }
+
+const classSchedule = schedule.map((scheduledItem: ScheduledItem) => {
+  return {
+    week_day: scheduledItem.week_day,
+    from: convertHourToMinutes(scheduledItem.from),
+    to: convertHourToMinutes(scheduledItem.to)
+  };
+});
+```
+
+__Observação: a função `convertHourToMinutes()` foi declarada em `src/utils/convertHourToMinutes/convertHourToMinutes.ts`.__
+
 ___
   
 
