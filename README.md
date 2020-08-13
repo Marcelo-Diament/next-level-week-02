@@ -71,10 +71,25 @@ Confira as principais tecnologias utilizadas no projeto:
 
 Independentemente do 'sub pacote', sempre utilizaremos o **[React][React]**. O [React][React] também utiliza bibliotecas adicionais para integrar-se às interfaces de acordo com o ambiente. Por exemplo, na web utilizamos o [ReactJS][ReactJS] com o [ReactDOM][ReactDOM]. Já para _apps mobile_ utilizamos o [ReactNative][ReactNative] com uma biblioteca adicional também chamada de [ReactNative][ReactNative].
 
+##### Node.js
+
+É uma plataforma que nos permite utilizar o mesmo JavaScript (puro ou com ReactJS, ...) no back-end.
+
+* _Non-blocking IO_: conseguimos controlar a assincronicidade
+
+* Streams (nos permite consumir dados no estilo '_LazyLoad_') e WorkerThreads (nos permite trabalhar o _core_)
+
 ##### TypeScript
 
 O [TypeScript][TypeScript] é uma extensão do JavaScript que utiliza a tipagem que facilita a manutenção do código e garante a consistência de nossas soluções, pois captura um erro antes mesmo de sua execução. Também possui recursos para IDEs que otimizam o desenvolvimento.
 
+##### Knex
+
+O Knex é um _query builder_, que possibilita escrevermos as _queries_ de forma mais simples, em JavaScript.
+
+##### SQLite
+
+O _sqlite3_ é um pacote de banco de dados mais leve, não requer instalações na máquina. Usaremos a sintaxe do _knex_ para trabalharmos com o _sqlite3_.
 ___
   
 
@@ -267,13 +282,13 @@ No `server.ts` importamos o _express_ e definimos as configurações básicas do
 
 ##### 02.04 Criando o Banco de Dados (SQLite)
 
-Utilizaremos o _SQLite_ por conta de sua simplicidade, mas poderíamos utilizar outros sem problemas. Para instalarmos, precisamos executar: `yarn add knex sqlite3` ou `npm install knex sqlite3` . O _knex_ é um _query builder_, que possibilita escrevermos as _queries_ de forma mais simples, em JavaScript.
+Utilizaremos o _SQLite_ por conta de sua simplicidade, mas poderíamos utilizar outros sem problemas. Para instalarmos o pacote no projeto, precisamos executar: `yarn add knex sqlite3` ou `npm install knex sqlite3` . O _knex_ é um _query builder_, que possibilita escrevermos as _queries_ de forma mais simples, em JavaScript.
 
 Depois da instalação, vamos criar a pasta `src/database` , onde ficarão os arquivos referentes ao BD (Banco de Dados). O primeiro arquivo a ser criado será o `connection.ts` . Nele importaremos o _knex_ e o _path_ (para facilitar o uso dos recursos das rotas). Então definiremos a _const_ db, que - usando _knex_ - definirá o tipo de banco (_sqlite3_), a connexão e, no caso do _sqlite3_, definiremos a propriedade `useNullAsDefault` como `true` .
 
 **Migration**
 
-O Knex é escrito em `.js` e não `.ts` , por isso precisaremos criar o arquivo `./server/knexfile.ts` . Nele faremos o seguinte:
+O Knex (um _query builder_) é escrito em `.js` e não `.ts` , por isso precisaremos criar o arquivo `./server/knexfile.ts` . Nele faremos o seguinte:
 
 ``` ts
 import path from 'path';
