@@ -43,14 +43,16 @@ Garanta que possui acesso aos arquivos de _layout_ do projeto no [Figma][Figma] 
 
 ##### Conexões
 
-* Rota para listar o total de conexões realizadas
-* Rota para criar uma nova conexão (ativada quando clicarem em entrar em contato)
+* Rota de listagem de conexões realizadas (operação de soma dos registros)
+
+* Rota de criação de nova conexão (ativada quando clicarem em __Entrar em contato__)
 
 ##### Aulas
 
-* Rota para criar aula
+* Rota de listagem de aulas [filtros por matéria, dia da semana e hora]
 
-* Rota para listar aulas | filtros por matéria, dia da semana e hora  
+* Rota de Criação de nova aula
+
 
 ### Tecnologias
 
@@ -307,7 +309,7 @@ Agora vamos criar as demais _migrations_ (_class_schedule_, _classes_ e _connect
 
 ##### 02.05 Routes
 
-Vamos criar o arquivo `./server/src/routes.ts`. E vamos mover o trecho em que definimos a rota `app.get()` no arquivo `server.ts`.
+Vamos criar o arquivo `./server/src/routes.ts` . E vamos mover o trecho em que definimos a rota `app.get()` no arquivo `server.ts` .
 ___
   
 
