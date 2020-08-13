@@ -53,7 +53,6 @@ Garanta que possui acesso aos arquivos de _layout_ do projeto no [Figma][Figma] 
 
 * Rota de Criação de nova aula
 
-
 ### Tecnologias
 
 Confira as principais tecnologias utilizadas no projeto:
@@ -332,7 +331,7 @@ Podemos utilizar o [Insomnia][Insomnia] para visualizarmos melhor o consumo e ma
 
 ###### GET | Lista Classes | sintaxe _knex_
 
-```ts
+``` ts
 routes.get('/classes',async (request, response) => {
   const allClasses = await db('classes');
   return response.json(allClasses);
@@ -341,7 +340,7 @@ routes.get('/classes',async (request, response) => {
 
 ###### GET | Detalhe Classe | sintaxe _knex_
 
-```ts
+``` ts
 routes.get('/classes/:id',async (request, response) => {
   const classesId = request.params.id;
   const classesItem = await (await db('classes').where('id', classesId));
@@ -351,7 +350,7 @@ routes.get('/classes/:id',async (request, response) => {
 
 ###### POST | Novo Usuário | sintaxe _knex_
 
-```ts
+``` ts
 routes.post('/users', async (request, response) => {
   const {
     name,
@@ -373,7 +372,9 @@ routes.post('/users', async (request, response) => {
 
 ###### DELETE | Exclusão Classe | sintaxe _knex_
 
-<!-- ```ts
+<!-- 
+
+``` ts
 routes.get('/classes/:id',async (request, response) => {
   const classesId = request.params.id;
   const classesItem = await (await db('classes').where('id', classesId));
@@ -398,16 +399,36 @@ interface ScheduledItem {
 { ... }
 
 const classSchedule = schedule.map((scheduledItem: ScheduledItem) => {
-  return {
-    week_day: scheduledItem.week_day,
-    from: convertHourToMinutes(scheduledItem.from),
-    to: convertHourToMinutes(scheduledItem.to)
-  };
-});
+    return {
+      class_id,
+      week_day: scheduledItem.week_day,
+      from: convertHourToMinutes(scheduledItem.from),
+      to: convertHourToMinutes(scheduledItem.to)
+    };
+  });
+}
 ```
 
-__Observação: a função `convertHourToMinutes()` foi declarada em `src/utils/convertHourToMinutes/convertHourToMinutes.ts`.__
+__Observação: a função `convertHourToMinutes()` foi declarada em `src/utils/convertHourToMinutes/convertHourToMinutes.ts` .__
 
+Por fim, vamos atualizar a operação do banco de dados dentro da const `classSchedule` :
+
+``` ts
+await db('class_schedule').insert(classSchedule);
+```
+
+##### 02.06 Refatoração
+
+**Transactions**
+
+Vamos criar uma _transaction_ ( `trx` ) para podermos realizar todas operações em paralelo, evitando executar um registro antes de outra _query_ gerar um erro.
+Para isso basta definirmos `const trx = await db.transaction();` e substituir `await db...` por `await.trx...` . Antes de retornar nossa _response_, vamos _commitar_ todas as _queries_ guardadas em nossa _transaction_: `await trx.commit();` .
+
+Outro recurso bacana do uso das _transactions_ é podermos realizar o _rollback_ do que já estava pronto para ser _commitado_: `await trx.rollback();` .
+
+**Tratativa de Erros**
+
+Vamos incluir um _try_/_catch_, para - caso ocorra algum erro - podermos capturar os erros e tratá-los e/ou comunicá-los.
 ___
   
 
