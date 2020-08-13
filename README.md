@@ -325,6 +325,10 @@ Agora vamos criar as demais _migrations_ (_class_schedule_, _classes_ e _connect
 ##### 02.05 Routes
 
 Vamos criar o arquivo `./server/src/routes.ts` . E vamos mover o trecho em que definimos a rota `app.get()` no arquivo `server.ts` .
+
+Para cada rota, teremos um método (GET, POST, DELETE) e um retorno (a listagem dos registros, os detalhes de um registro, a criação ou atualização de um novo registro ou a exclusão de um registro). Portanto as rotas são responsáveis por executar as _queries_ no banco de dados de acordo com as _requests_ e _responses_.
+
+Podemos utilizar o [Insomnia][Insomnia] para visualizarmos melhor o consumo e manipulação dos dados do banco _sqilte3_. Faremos essas operações de forma a usar o _await_/_async_ nas _promises_, a desestruturação de objetos e outros conceitos já vistos até esse ponto.
 ___
   
 
