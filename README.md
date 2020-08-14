@@ -436,6 +436,8 @@ Vamos incluir um _try_/_catch_, para - caso ocorra algum erro - podermos captura
 **Controllers**
 
 Vamos reproduzir uma arquitetura **MVC**, por isso vamos isolar _controllers_ de _models_ e _views_. Então vamos criar a pasta _src/controllers/_ e seus arquivos.
+
+Basicamente apontaremos uma rota (_routes.ts) para um _controller_, que por sua vez, determinará que ação será executada, em que tabela, etc.. Faremos isso com a ajuda do _knex_.
 ___
   
 
