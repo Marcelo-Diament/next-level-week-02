@@ -439,10 +439,12 @@ Vamos reproduzir uma arquitetura **MVC**, por isso vamos isolar _controllers_ de
 
 Basicamente apontaremos uma rota (_routes.ts) para um _controller_, que por sua vez, determinará que ação será executada, em que tabela, etc.. Faremos isso com a ajuda do _knex_.
 
+Criaremos também o _src/controllers/ConnectionsController.ts_.
 
-##### 02.08 - Conexões
+##### 02.08 - CORS
 
-Criaremos o _src/controllers/ConnectionsController.ts_.
+Permite o controle de requisições de outras origens (_Corss Origin_). Para isso baixaremos o pacote _cors_ para o ambiente de desenvolvimento - `yarn add cors -D` e importaremos no arquivo _server.ts_.
+
 ___
   
 
