@@ -73,6 +73,8 @@ routes.post('/classes', async (request, response) => {
 
   } catch (err) {
 
+    console.error(err);
+    
     await trx.rollback();
 
     return response.status(400).json({
