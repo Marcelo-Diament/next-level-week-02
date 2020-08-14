@@ -429,6 +429,13 @@ Outro recurso bacana do uso das _transactions_ é podermos realizar o _rollback_
 **Tratativa de Erros**
 
 Vamos incluir um _try_/_catch_, para - caso ocorra algum erro - podermos capturar os erros e tratá-los e/ou comunicá-los.
+
+
+##### 02.07 - Listagem das Aulas
+
+**Controllers**
+
+Vamos reproduzir uma arquitetura **MVC**, por isso vamos isolar _controllers_ de _models_ e _views_. Então vamos criar a pasta _src/controllers/_ e seus arquivos.
 ___
   
 
