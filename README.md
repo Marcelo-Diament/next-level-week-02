@@ -443,7 +443,7 @@ Criaremos também o _src/controllers/ConnectionsController.ts_.
 
 ##### 02.08 - CORS
 
-Permite o controle de requisições de outras origens (_Corss Origin_). Para isso baixaremos o pacote _cors_ para o ambiente de desenvolvimento - `yarn add cors -D` e importaremos no arquivo _server.ts_.
+Permite o controle de requisições de outras origens (_Corss Origin_). Para isso baixaremos o pacote _cors_ para o ambiente de desenvolvimento - `yarn add cors` e `yarn add @types/cors -D` e importaremos no arquivo _server.ts_.
 
 ___
   
