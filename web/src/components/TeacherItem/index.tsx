@@ -1,31 +1,47 @@
 import React from 'react';
+import api from '../../services/api';
 import whatsappIcon from '../../assets/images/icons/whatsapp.svg';
 import './styles.css';
 
-const TeacherItem = () => {
+export interface Teacher {
+  id: number,
+  avatar: string,
+  bio: string,
+  cost: number,
+  name: string,
+  subject: string,
+  whatsapp: string
+}
+
+interface TeacherItemProps {
+  teacher: Teacher;
+}
+
+const TeacherItem: React.FC<TeacherItemProps> = ({ teacher }) => {
+  function createNewConnection() {
+    api.post('connections', {
+      user_id: teacher.id
+    })
+  }
   return (
     <article className="teacher-item">
       <header>
-        <img src="https://media-exp1.licdn.com/dms/image/C4E03AQGpLQGpgPAbUg/profile-displayphoto-shrink_200_200/0?e=1602720000&v=beta&t=uElzAZ4jfrquyZ_qaEio8X3O6XSzHjMwqep9hzLykVY" alt="Marcelo Diament" />
+        <img src={teacher.avatar} alt={teacher.name} />
         <div>
-          <strong>Marcelo Diament</strong>
-          <span>Programação Web</span>
+          <strong>{teacher.name}</strong>
+          <span>{teacher.subject}</span>
         </div>
       </header>
-      <p>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Incidunt a velit ducimus ipsam, neque inventore beatae numquam consectetur. Dicta repudiandae, esse facilis mollitia voluptas reprehenderit ducimus tempore. Asperiores, temporibus facere.
-        <br/><br/>
-        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi neque obcaecati culpa accusamus velit inventore sed impedit et qui aut esse sapiente soluta, quis id exercitationem, eligendi, totam corrupti possimus?
-      </p>
+      <p>{teacher.bio}</p>
       <footer>
         <p>
           Preço/Hora
-          <strong>R$ 80,00</strong>
+          <strong>R$ {teacher.cost}</strong>
         </p>
-        <button type="button">
+        <a onClick={createNewConnection} target="_blank" href={`href="https://wa.me/${teacher.whatsapp}?text=Olá%20${teacher.name},%0D%0A%0D%0AAcessei%20o%20site%20Proffy%20e%20gostaria%20de%20saber%20mais%20sobre%20as%20auls%20de%20${teacher.subject}%0D%0A"`}>
           <img src={whatsappIcon} alt="Whatsapp" />
-              Entrar em Contato
-            </button>
+          Entrar em Contato
+        </a>
       </footer>
     </article>
   );

@@ -476,6 +476,10 @@ Propriedades são uma forma de transmitirmos informações entre os componentes.
 
 Outra maneira de usarmos uma _prop_ (sem termos de definir na interface) é através da propriedade _children_ ( `props.children` ). Essa propriedade nos permite definir o conteúdo dentro do contexto onde o componente está sendo utilizado (como o form de `TeacherList` dentro do `PageHeader` ).
 
+##### ReactJS | States
+
+_State_ são os **estados** dos componentes. Sempre que precisamos **alterar uma propriedade através da interação com o usuário**, utilizamos as interfaces - que é montada a partir das informações que recebe (via JavaScript).
+
 ##### ReactJS | Rotas
 
 Para trabalharmos com as rotas (endereços da aplicação), instalamos o `react-router-dom` ( `yarn add react-router-dom` ) e importamos o `BrowserRouter` e o `Route` no arquivo `routes.tsx` (que também é um componente):
