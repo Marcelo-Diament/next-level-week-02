@@ -27,23 +27,41 @@ const TeacherForm = () => {
             name="subject"
             label="Matéria"
             options={[
-              {value: 'Artes', label: 'Artes'},
-              {value: 'Biologia', label: 'Biologia'},
-              {value: 'Ciências', label: 'Ciências'},
-              {value: 'Geografia', label: 'Geografia'},
-              {value: 'História', label: 'História'},
-              {value: 'Português', label: 'Português'},
-              {value: 'Química', label: 'Química'}
+              { value: 'Artes', label: 'Artes' },
+              { value: 'Biologia', label: 'Biologia' },
+              { value: 'Ciências', label: 'Ciências' },
+              { value: 'Geografia', label: 'Geografia' },
+              { value: 'História', label: 'História' },
+              { value: 'Português', label: 'Português' },
+              { value: 'Química', label: 'Química' }
             ]}
             required
           />
           <Input name="cost" label="Custo hora/aula" required />
         </fieldset>
         <fieldset>
-          <legend>Horários Disponíveis</legend>
-          <Input name="name" label="Nome" required />
-          <Input name="avatar" label="Avatar" required />
-          <Input name="whatsapp" label="Whatsapp" required />
+          <legend>
+            Horários Disponíveis
+            <button type="button">+ novo horário</button>
+          </legend>
+          <div className="schedule-item">
+            <Select
+              name="week_day"
+              label="Dia da Semana"
+              options={[
+                { value: '0', label: 'Domingo' },
+                { value: '1', label: 'Segunda' },
+                { value: '2', label: 'Terça' },
+                { value: '3', label: 'Quarta' },
+                { value: '4', label: 'Quinta' },
+                { value: '5', label: 'Sexta' },
+                { value: '6', label: 'Sábado' }
+              ]}
+              required
+            />
+            <Input name="from" label="Das" type="time" required />
+            <Input name="to" label="Até" type="time" required />
+          </div>
         </fieldset>
         <footer>
           <p>
